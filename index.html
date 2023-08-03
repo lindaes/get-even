@@ -31,6 +31,7 @@
      
    <main class="wrapper">
  
+    <p>The Get Even website uses HTML and Java Script. This website allows you to enter a number into the input box and will have an output stating if the number is even or odd.</p>
     <h2 class="subheader">Place form code below:</h2>
     <div id="output">
     <form method="get" action="" class="main-form"> 
@@ -54,6 +55,16 @@
   <script src="js/main.js"></script>   
   <script>
 
+function getEven(num){
+if(num % 2 ==0){//even
+ return true;
+}else{//odd
+ return false;
+}
+
+}
+
+
   const queryString = window.location.search;
 
 const urlParams = new URLSearchParams(queryString);
@@ -67,7 +78,15 @@ if(urlParams.has("input")){
 
 let myInput = urlParams.get("input");
 
-myOutput += `<p>You input ${myInput}</p>`;
+if(getEven(myInput)){//even output
+ myOutput += `<p>You input ${myInput} and the number is even</p>`;
+}else{//odd output
+ myOutput += `<p>You input ${myInput} and the number is odd</p>`;
+}
+
+
+
+
 
   }
   myOutput += `<p><a href="index.html">CLEAR</a></p>`;
